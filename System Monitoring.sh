@@ -6,9 +6,10 @@
 
 output=$HOME/research/sys_info.txt
 date=$(date +'%m/%d/%Y')
-threshold=1
+threshold=90
 LOG_FILE="system_monitor.log"
 base_on="cpu"
+number_of_processes=5
 INFILE=/proc/stat
 
 # Initialize color
@@ -56,7 +57,7 @@ main (){
     check_cpu_usage "$threshold" "$iteration" "$LOG_FILE"
 
     check_memory_usage "$LOG_FILE"
-    
+
     check_top_processes "$LOG_FILE" "$number_of_processes" "$base_on"
 
     echo -e " $GREEN System Monitoring Script is done $NC" | tee -a "$LOG_FILE"

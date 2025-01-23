@@ -61,5 +61,8 @@ main (){
     check_top_processes "$LOG_FILE" "$number_of_processes" "$base_on"
 
     echo -e " $GREEN System Monitoring Script is done $NC" | tee -a "$LOG_FILE"
+    echo "---------------------------------" | tee -a "$LOG_FILE"
+    echo " Start cron job to run this script every 5 minutes"
+    echo "*/1 * * * * /bin/bash $(pwd)/'System Monitoring.sh' " | crontab -
 }
 main "$@"

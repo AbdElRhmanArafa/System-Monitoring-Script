@@ -33,3 +33,7 @@ Run the main script with the following command:
 ```sh
 ./System\ Monitoring.sh -t 90 -f /var/log/system_monitor.log -i 10 -n 10 -b memory
 ```
+
+### notes
+
+- To remve cron job use `crontab -e` and remove the line that was added by the script
